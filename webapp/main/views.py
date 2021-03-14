@@ -46,6 +46,7 @@ def login_request(request):
                 return redirect('/')
             else:
                 print("Invalid username or password.")
+                return redirect('/login?result=inv')
         else:
             print("Invalid username or password.")
     form = AuthenticationForm()

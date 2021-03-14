@@ -24,7 +24,26 @@ li {
 .new_footer_area {
     background: #fbfbfd;
 }
-
+.parallax {
+    /* Set a specific height */
+    min-height: 500px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.prlx1{
+    /* The image used */
+    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/1715.jpg");
+  
+}
+.prlx2{
+    /* The image used */
+    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/24.jpg");
+  
+}
 
 .new_footer_top {
     padding: 120px 0px 270px;
