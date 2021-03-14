@@ -53,3 +53,6 @@ def login_request(request):
     return render(request = request,
                     template_name = "main/login.html",
                     context={"form":form})
+
+def categories(request):
+    return render(request=request,template_name="main/categories.html")
