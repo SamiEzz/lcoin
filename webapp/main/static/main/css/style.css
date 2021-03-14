@@ -1,5 +1,5 @@
 body {
-    background: #fbfbfd;
+    background: #fff;
     font-family: 'Roboto', sans-serif;
 }
 p {
@@ -36,12 +36,12 @@ li {
 }
 .prlx1{
     /* The image used */
-    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/1715.jpg");
+    background-image: url("https://materializecss.com/images/parallax1.jpg");
   
 }
 .prlx2{
     /* The image used */
-    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/3308.jpg");
+    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/2465.jpg");
 }
 
 .new_footer_top {
