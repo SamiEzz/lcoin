@@ -31,10 +31,9 @@
     <script src="{% static 'main/js/jsmfcode.js' %}"></script>
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}" />
   </head>
-
   <nav style="margin-bottom: 10px">
     <div class="nav-wrapper cyan">
-      <ul class="left hide-on-med-and-down">
+      <ul class="left">
         <li class="logo">
           <a href="/" class="brand-logo"
             ><i class="material-icons">all_inclusive</i>LCoin -
@@ -42,16 +41,18 @@
           >
         </li>
       </ul>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#">Pricing</a></li>
-        <li><a href="/categories/">Categories</a></li>
-        <li>
+      <ul id="nav-mobile" class="right">
+        <li class="hide-on-med-and-down"><a href="#">Pricing</a></li>
+        <li class="hide-on-med-and-down">
+          <a href="/categories/">Categories</a>
+        </li>
+        <li class="hide-on-med-and-down">
           <a href="/logout?username={{request.user.username}}"
             >{{request.user.username}}</a
           >
         </li>
-        <li><a href="/register/">SignUP</a></li>
-        <li>
+        <li class="hide-on-med-and-down"><a href="/register/">SignUP</a></li>
+        <li class="hide-on-small-and-down">
           <form>
             <div class="input-field">
               <input id="search" type="search" required />
