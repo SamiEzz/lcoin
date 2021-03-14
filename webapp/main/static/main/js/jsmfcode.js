@@ -1,2 +1,1 @@
-alert("ok");
-console.debug("OK");
+console.log("OK");
