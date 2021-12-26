@@ -4,6 +4,7 @@ from django.contrib.auth import logout, authenticate, login
 from .forms import NewUserForm
 
 # Create your views here.
+
 def homepage(request):
     return render(request=request,template_name="main/home.html")
     #return render(request=request,template_name="main/home.html",context={"mails": Player.objects.all})
@@ -54,5 +55,5 @@ def login_request(request):
                     template_name = "main/login.html",
                     context={"form":form})
 
-def categories(request):
-    return render(request=request,template_name="main/categories.html")
+def map(request):
+    return render(request=request,template_name="main/map.html")

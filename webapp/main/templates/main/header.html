@@ -1,63 +1,58 @@
 <html>
-  {% load static %}
+{% load static %}
 
-  <head>
-    <title>Home - LCoin</title>
+<head>
+    <title>Home - The Promised Land</title>
     <!-- Compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Icons -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Roboto&family=Oxygen&family=Ubuntu&family=Monoton&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Roboto&family=Oxygen&family=Ubuntu&family=Monoton&display=swap" rel="stylesheet" />
 
     <!-- local -->
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      type="text/javascript"
-    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
     <script src="{% static 'main/js/jsmfcode.js' %}"></script>
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}" />
-  </head>
-  <nav style="margin-bottom: 10px">
-    <div class="nav-wrapper cyan">
-      <ul class="left">
-        <li class="logo">
-          <a href="/" class="brand-logo"
-            ><i class="material-icons">all_inclusive</i>LCoin -
-            <span class="logoar"> لكوان</span></a
+
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.css" type="text/css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<nav style="margin-bottom: 10px">
+    <div class="nav-wrapper black">
+        <ul class="left">
+            <li class="logo">
+                <a href="/" class="brand-logo"><i class="material-icons">all_inclusive</i>The Promised Land</a
           >
         </li>
       </ul>
       <ul id="nav-mobile" class="right">
         <li class="hide-on-med-and-down"><a href="#">Pricing</a></li>
-        <li class="hide-on-med-and-down">
-          <a href="/categories/">Categories</a>
-        </li>
-        <li class="hide-on-med-and-down">
-          <a href="/logout?username={{request.user.username}}"
-            >{{request.user.username}}</a
+            <li class="hide-on-med-and-down">
+                <a href="/map/">Map</a>
+            </li>
+            <li class="hide-on-med-and-down">
+                <a href="/logout?username={{request.user.username}}">{{request.user.username}}</a
           >
         </li>
         <li class="hide-on-med-and-down"><a href="/register/">SignUP</a></li>
-        <li class="hide-on-small-and-down">
-          <form>
-            <div class="input-field">
-              <input id="search" type="search" required />
-              <label class="label-icon" for="search"
-                ><i class="material-icons">search</i></label
+            <li class="hide-on-med-and-down"><a href="/login/">Login</a></li>
+
+            <li class="hide-on-small-and-down">
+                <form>
+                    <div class="input-field">
+                        <input class="ubuntu" id="search" type="search" required placeholder="Find someone" />
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label
               >
               <i class="material-icons">close</i>
             </div>
@@ -83,7 +78,7 @@
         <div class="row">
           <div class="col-5">
             <p>
-              ©<span class="copyrights"> LCoin </span> - Copyrights 2021 All
+              ©<span class="copyrights"> The Promised Land </span> - Copyrights 2021 All
               rights reserved.
             </p>
           </div>

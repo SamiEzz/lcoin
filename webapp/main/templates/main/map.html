@@ -1,0 +1,73 @@
+{% extends 'main/header.html' %} {% block content %}
+
+<style>
+    .calculation-box {
+        height: 75px;
+        width: 150px;
+        position: absolute;
+        bottom: 40px;
+        left: 10px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 15px;
+        text-align: center;
+    }
+    
+    p {
+        font-family: 'Open Sans';
+        margin: 0;
+        font-size: 13px;
+    }
+</style>
+<div class="row">
+
+    <div id='map' style='width: 100%; height: 100%;'></div>
+
+    <div class="calculation-box">
+        <div id="calculated-area">
+            <p>Select your land</p>
+        </div>
+    </div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoicmlja2MxMzM3IiwiYSI6ImNreG1mcGk4NzBtMTYyd2tveTRzMmI2bHoifQ.h1JSnPeN40KLcubGdeMOCQ';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/satellite-v9', // style URL
+            zoom: 5 // starting zoom
+        });
+        map.addControl(new mapboxgl.NavigationControl());
+        const draw = new MapboxDraw({
+            displayControlsDefault: false,
+            // Select which mapbox-gl-draw control buttons to add to the map.
+            controls: {
+                polygon: true,
+                trash: true
+            },
+            // Set mapbox-gl-draw to draw by default.
+            // The user does not have to click the polygon control button first.
+            defaultMode: 'draw_polygon'
+        });
+        map.addControl(draw);
+
+        map.on('draw.create', updateArea);
+        map.on('draw.delete', updateArea);
+        map.on('draw.update', updateArea);
+
+        function updateArea(e) {
+            const kmPrice = 0.001;
+            const data = draw.getAll();
+            const answer = document.getElementById('calculated-area');
+            if (data.features.length > 0) {
+                const area = turf.area(data);
+                // Restrict the area to 2 decimal points.
+                const rounded_area = Math.round(area * 100 * kmPrice) / 100;
+                answer.innerHTML = `<p>This land worth <strong>${rounded_area}</strong></p><p>PLD</p>`;
+            } else {
+                answer.innerHTML = '';
+                if (e.type !== 'draw.delete')
+                    alert('Click the map to draw a polygon.');
+            }
+        }
+    </script>
+</div>
+
+{% endblock %}
